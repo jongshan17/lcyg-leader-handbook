@@ -5,108 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LCYG Student Leader Handbook 2026-2027</title>
   
-  <!-- Fonts & Signature Script -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
   <style>
     :root {
-      --brand-color: #b6e2f8;
-      --brand-dark: #0284c7;
-      --brand-subtle: #f0f9ff;
+      --brand-blue: #b6e2f8;
+      --brand-blue-dark: #0284c7;
       --navy-900: #0f172a;
       --navy-800: #1e293b;
-      --text-muted: #64748b;
-      --border-color: #d1e9f6;
+      --slate-600: #475569;
+      --slate-100: #f1f5f9;
+      --bg-body: #f8fafc;
+      --card-shadow: 0 20px 25px -5px rgba(182, 226, 248, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.75;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
       color: var(--navy-800);
-      background-color: #f8fafc;
+      line-height: 1.75;
       padding: 40px 16px;
     }
 
-    .container {
-      max-width: 860px;
+    .app-container {
+      max-width: 880px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 50px 40px;
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(182, 226, 248, 0.35);
-      border-top: 12px solid var(--brand-color);
-      border-left: 1px solid var(--border-color);
-      border-right: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      border: 2px solid var(--brand-blue);
+      overflow: hidden;
       position: relative;
     }
 
-    /* Clean Perfect CSS Logo Header */
-    .header {
+    .hero-header {
+      background: linear-gradient(135deg, #e0f2fe 0%, #b6e2f8 100%);
+      padding: 48px 32px;
       text-align: center;
-      padding-bottom: 30px;
-      border-bottom: 2px solid var(--brand-color);
-      margin-bottom: 40px;
     }
 
-    .logo-circle {
-      width: 110px;
-      height: 110px;
-      background-color: var(--brand-color);
+    /* Fixed Logo Cropper (Guarantees only the inner circle logo displays) */
+    .logo-cropper {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 15px;
+      overflow: hidden;
+      margin: 0 auto 16px auto;
       border: 4px solid #ffffff;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      background-color: #b6e2f8;
+      position: relative;
     }
 
-    .logo-text {
-      color: #ffffff;
-      font-size: 42px;
-      font-weight: 700;
-      font-style: italic;
-      font-family: 'Caveat', 'Brush Script MT', cursive, sans-serif;
-      margin-top: -4px;
+    .logo-cropper img {
+      width: 170%;
+      height: auto;
+      position: absolute;
+      top: -22%;
+      left: -35%;
+      object-fit: cover;
     }
 
-    h1 {
-      color: var(--navy-900);
-      font-size: 30px;
+    .hero-title {
+      font-size: 32px;
       font-weight: 800;
-      margin: 10px 0 5px 0;
-      letter-spacing: -0.5px;
+      color: var(--navy-900);
+      letter-spacing: -0.8px;
     }
 
-    .subtitle {
-      color: var(--brand-dark);
+    .hero-subtitle {
       font-size: 15px;
+      color: #0369a1;
       font-weight: 700;
+      margin-top: 6px;
       text-transform: uppercase;
       letter-spacing: 1.2px;
     }
 
-    /* Headings & Typography */
+    .content-body {
+      padding: 44px 40px;
+    }
+
+    .section-block {
+      margin-bottom: 44px;
+    }
+
     h2 {
-      color: var(--navy-900);
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 800;
-      border-left: 5px solid var(--brand-color);
-      padding-left: 12px;
-      margin-top: 40px;
+      color: var(--navy-900);
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 18px;
+      border-bottom: 2px solid var(--slate-100);
+      padding-bottom: 10px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 24px;
+      background: var(--brand-blue-dark);
+      border-radius: 4px;
     }
 
     h3 {
-      color: var(--brand-dark);
       font-size: 16px;
       font-weight: 700;
-      margin-top: 22px;
-      margin-bottom: 10px;
+      color: var(--brand-blue-dark);
+      margin: 20px 0 10px 0;
     }
 
     p, li {
@@ -122,49 +134,16 @@
 
     li { margin-bottom: 8px; }
 
-    .vision-box {
-      background-color: var(--brand-subtle);
-      border: 2px solid var(--brand-color);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      margin: 25px 0;
-    }
-
-    .vision-title {
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--brand-dark);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    .quote-box {
-      background-color: #f9fafb;
-      border-left: 4px solid var(--brand-color);
-      border-radius: 0 10px 10px 0;
-      padding: 18px 22px;
-      margin: 20px 0;
+    .quote-card {
+      background: #f0f9ff;
+      border-left: 4px solid var(--brand-blue-dark);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
       font-style: italic;
+      margin: 24px 0;
       color: #0c4a6e;
     }
 
-    .step-box {
-      background-color: #ffffff;
-      border: 1px solid var(--border-color);
-      border-left: 5px solid var(--brand-dark);
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 14px;
-    }
-
-    .step-box strong {
-      color: var(--navy-900);
-      font-size: 15px;
-    }
-
-    /* Pastor Signature Block */
     .pastor-sig-block {
       margin-top: 28px;
       display: flex;
@@ -183,37 +162,38 @@
       object-fit: contain;
     }
 
-    /* Symmetrical Table Layout */
-    table {
+    .styled-table {
       width: 100%;
       table-layout: fixed;
       border-collapse: collapse;
       margin: 24px 0;
       border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       border: 1px solid #e2e8f0;
-      font-size: 14px;
     }
 
-    col.col-pillar { width: 30%; }
-    col.col-armor { width: 30%; }
-    col.col-app { width: 40%; }
+    .styled-table col.col-pillar { width: 30%; }
+    .styled-table col.col-armor { width: 30%; }
+    .styled-table col.col-app { width: 40%; }
 
-    th {
-      background-color: var(--brand-color);
+    .styled-table th {
+      background-color: var(--brand-blue);
       color: var(--navy-900);
       font-weight: 800;
       text-align: left;
       padding: 14px 16px;
+      font-size: 14px;
       white-space: nowrap;
     }
 
-    td {
+    .styled-table td {
       padding: 16px;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+      background: #ffffff;
       vertical-align: top;
       word-wrap: break-word;
-      background: #ffffff;
     }
 
     .pillar-title {
@@ -223,13 +203,24 @@
       font-size: 15px;
     }
 
-    /* Covenant Form */
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-left: 5px solid var(--brand-blue-dark);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .info-card strong {
+      color: var(--navy-900);
+      font-size: 15px;
+    }
+
     .covenant-card {
       background: #fafafa;
-      border-top: 2px solid var(--brand-color);
-      border-radius: 16px;
-      padding: 32px 28px;
-      margin-top: 40px;
+      border-top: 2px solid var(--brand-blue);
+      padding: 40px 36px;
     }
 
     .form-group {
@@ -293,15 +284,9 @@
       border-radius: 12px;
       cursor: pointer;
       box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.3);
-      transition: all 0.2s;
     }
 
-    .submit-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 20px -3px rgba(2, 132, 199, 0.4);
-    }
-
-    /* Discreet Admin Button */
+    /* Discrete Admin Button (Tiny & Low Opacity) */
     .discreet-admin-btn {
       position: absolute;
       bottom: 12px;
@@ -317,22 +302,6 @@
 
     .discreet-admin-btn:hover {
       opacity: 0.8;
-    }
-
-    /* Save Banner when editing */
-    .save-banner {
-      display: none;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #16a34a;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      z-index: 9999;
-      cursor: pointer;
     }
 
     .loading-overlay {
@@ -351,34 +320,32 @@
 
     @media (max-width: 640px) {
       body { padding: 0; }
-      .container { border-radius: 0; border: none; padding: 24px 18px; }
-      table { display: block; overflow-x: auto; }
+      .app-container { border-radius: 0; border: none; }
+      .content-body, .covenant-card { padding: 24px 18px; }
+      .styled-table { display: block; overflow-x: auto; }
       .pastor-sig-block { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Floating Save Button in Edit Mode -->
-<div id="saveBanner" class="save-banner" onclick="saveAndDownloadHTML()">
-  💾 Save Changes & Download index.html
-</div>
-
-<div class="container">
-  <!-- Clean CSS Logo Header -->
-  <div class="header">
-    <div class="logo-circle">
-      <span class="logo-text">lcyg</span>
+<div class="app-container">
+  <!-- Header with Perfect Cropped Logo -->
+  <header class="hero-header">
+    <div class="logo-cropper">
+      <img src="lcyg-logo.png" alt="LCYG Official Logo">
     </div>
-    <h1>LCYG Student Leader Handbook</h1>
-    <div class="subtitle">The Lord's Church Youth Group • 2026–2027</div>
-  </div>
+    <h1 class="hero-title">LCYG Student Leader Handbook</h1>
+    <p class="hero-subtitle">The Lord's Church Youth Group • 2026–2027</p>
+  </header>
 
-  <main id="handbookContent">
+  <!-- Main Content Body -->
+  <main class="content-body" id="handbookContent">
+    
     <!-- 1. Pastoral Letter -->
-    <section>
+    <section class="section-block">
       <h2>1. Letter from Youth Pastor</h2>
-      <div class="quote-box">
+      <div class="quote-card">
         "For God called you to do good, even if it means suffering, just as Christ suffered for you. He is your example, and you must follow in his steps." — 1 Peter 2:21 (NLT)
       </div>
       <p>Dear LCYG Student Leader,</p>
@@ -390,32 +357,30 @@
       <div class="pastor-sig-block">
         <div>
           <p style="margin: 0; font-weight: 800; color: var(--navy-900);">Pastor Jong Seok Han</p>
-          <p style="margin: 0; font-size: 13px; color: var(--text-muted);">Youth Ministry Pastor, The Lord’s Church of Austin</p>
+          <p style="margin: 0; font-size: 13px; color: var(--slate-600);">Youth Ministry Pastor, The Lord’s Church of Austin</p>
         </div>
         <img src="pastor-signature.png" alt="Pastor Jong Seok Han Signature" class="official-sig-img">
       </div>
     </section>
 
-    <!-- 2. Vision -->
-    <section>
+    <!-- 2. Core Vision & Mission -->
+    <section class="section-block">
       <h2>2. Core Vision & The Armor of God</h2>
-      <div class="vision-box">
-        <div class="vision-title">LCYG Mission Statement</div>
-        <p style="font-size: 18px; font-weight: 800; margin: 0; color: var(--brand-dark);">
-          "To equip independent seekers of God through Worship, Fellowship, and Discipleship."
-        </p>
-        <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">(Ephesians 6:13)</p>
+      <div style="background: #f0f9ff; border: 2px solid var(--brand-blue); padding: 24px; border-radius: 16px; text-align: center; margin: 20px 0;">
+        <p style="font-size: 13px; font-weight: 800; color: var(--brand-blue-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">LCYG Mission Statement</p>
+        <p style="font-size: 19px; font-weight: 800; color: var(--navy-900);">"To equip independent seekers of God through Worship, Fellowship, and Discipleship."</p>
+        <p style="font-size: 13px; color: var(--slate-600); margin-top: 6px;">(Ephesians 6:13)</p>
       </div>
 
       <p>An <strong>"Independent Seeker of God"</strong> is a student who does not rely solely on their parents, pastors, or leaders to fuel their faith. Instead, they own their personal relationship with Jesus Christ, actively pursuing Him through regular scripture reading, prayer, and godly decision-making in their daily lives.</p>
 
-      <div class="quote-box" style="background: #fafafa; border-left-color: var(--navy-900);">
+      <div class="quote-card" style="background: #fafafa; border-left-color: var(--navy-900);">
         <strong>Anchor Passage (Ephesians 6:13 NLT):</strong><br>
         "Therefore, put on every piece of God’s armor so you will be able to resist the enemy in the time of evil. Then after the battle you will still be standing firm."
       </div>
 
       <!-- Symmetrical Table -->
-      <table>
+      <table class="styled-table">
         <colgroup>
           <col class="col-pillar">
           <col class="col-armor">
@@ -448,8 +413,8 @@
       </table>
     </section>
 
-    <!-- 3. Qualifications -->
-    <section>
+    <!-- 3. Leader Qualifications & Commitments -->
+    <section class="section-block">
       <h2>3. Leader Qualifications & Commitments</h2>
       
       <h3>Leader Requirements</h3>
@@ -471,28 +436,28 @@
       <p>Leader meetings are held <strong><u>WEEKLY</u></strong> (subject to adjustments based on academic schedules, summer breaks, and ministry needs). Meetings serve to prepare for services, plan events, and engage in spiritual leadership training.</p>
     </section>
 
-    <!-- 4. Attendance Policy -->
-    <section>
+    <!-- 4. Attendance Policy & Notice Protocol -->
+    <section class="section-block">
       <h2>4. Attendance Policy & Advance Notice Protocol</h2>
       
-      <div class="step-box">
+      <div class="info-card">
         <strong>1. Mandatory 2-Week Advance Notice Policy:</strong><br>
         If you anticipate being unable to attend a Friday worship service, Sunday worship service, leader meeting, or scheduled event, you <strong>MUST inform Pastor Jong Seok Han at least TWO (2) WEEKS IN ADVANCE</strong>. This allows ministry teams time to adjust responsibilities and assign substitutes.
       </div>
 
-      <div class="step-box">
+      <div class="info-card">
         <strong>2. Requirement for Clear, Specific Explanations:</strong><br>
         Generic notices will NOT be accepted. Submitting messages like <em>"I can't make it," "I can't go,"</em> or <em>"I have something else"</em> is unacceptable for a student leader. Your notice must state the <strong>exact and specific reason</strong> (e.g., <em>"I have a mandatory school exam prep on Friday,"</em> or <em>"My family is traveling out of town for a wedding from Oct 12–14"</em>).
       </div>
 
-      <div class="step-box">
+      <div class="info-card">
         <strong>3. Emergency Exception Protocol:</strong><br>
         In cases of sudden, unforeseen emergencies (e.g., sudden illness or urgent family emergency), the 2-week requirement is waived. However, you or your parent must notify Pastor Jong Seok Han <strong>as soon as humanly possible</strong> prior to the service.
       </div>
     </section>
 
-    <!-- 5. Holy Distinction -->
-    <section>
+    <!-- 5. Standards of Holy Distinction (Consistent Citation Style) -->
+    <section class="section-block">
       <h2>5. Standards of Holy Distinction & Lifestyle</h2>
       <p><em>"Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think..." (Romans 12:2 NLT)</em></p>
 
@@ -506,56 +471,56 @@
     </section>
 
     <!-- 6. Youth Leadership Teams -->
-    <section>
+    <section class="section-block">
       <h2>6. Operational Leadership Teams</h2>
       <p>Student leaders serve across four functional ministry teams based on spiritual gifts and operational needs:</p>
 
-      <div class="step-box">
+      <div class="info-card">
         <strong>1. Welcoming & Hospitality Team:</strong><br>
         Arrive 20 minutes early for Friday and Sunday services. Stand at sanctuary doors to greet every student warmly. Escort newcomers, help them fill out visitor cards, and ensure no student ever sits alone.
       </div>
 
-      <div class="step-box">
+      <div class="info-card">
         <strong>2. Worship & Tech/Media Support Team:</strong><br>
         Assist with worship slides (PPT), microphone setup, sound checks, and camera settings. Ensure the sanctuary is clean and organized prior to service and manage post-service cleanup.
       </div>
 
-      <div class="step-box">
+      <div class="info-card">
         <strong>3. Praise & Prayer Leadership Team:</strong><br>
         Sit near the front during worship services to lead by example through passionate singing and attentive listening. Participate actively during altar calls, prayer times, and small groups.
       </div>
 
-      <div class="step-box">
+      <div class="info-card">
         <strong>4. Fellowship & Event Planning Support Team:</strong><br>
         Assist Pastor Jong Seok Han in brainstorming and organizing Friday night fellowship activities, summer outings, lock-ins, and retreat icebreakers. Encourage all students to participate enthusiastically.
       </div>
     </section>
 
     <!-- 7. Grace-Based Corrective Policy -->
-    <section>
+    <section class="section-block">
       <h2>7. Grace-Based Corrective Action Policy</h2>
       <p>Signing the leadership agreement represents a sacred commitment. If a student leader struggles to uphold commitments, attendance rules, or lifestyle guidelines, LCYG implements a 3-step grace-based restoration process:</p>
 
-      <div class="step-box" style="border-left-color: #f59e0b;">
+      <div class="info-card" style="border-left-color: #f59e0b;">
         <strong>Step 1: Pastoral Conversation</strong><br>
         A private, caring conversation with Pastor Jong Seok Han to discuss challenges, offer prayer, and establish a personal support and restoration plan.
       </div>
 
-      <div class="step-box" style="border-left-color: #ea580c;">
+      <div class="info-card" style="border-left-color: #ea580c;">
         <strong>Step 2: Parental Meeting & Temporary Leadership Pause</strong><br>
         If unexcused absences or conduct issues persist, a meeting with parents will take place. The student may take a temporary 2–4 week sabbatical from leadership duties to focus on spiritual recalibration and academic balance.
       </div>
 
-      <div class="step-box" style="border-left-color: #dc2626;">
+      <div class="info-card" style="border-left-color: #dc2626;">
         <strong>Step 3: Formal Re-Evaluation / Stepping Down</strong><br>
         If non-compliance continues, the student will step down from the Leadership Team for the remainder of the school year. This is not a punishment, but a loving step to allow space for spiritual growth without the weight of leadership expectations.
       </div>
     </section>
   </main>
 
-  <!-- 8. Student Covenant -->
+  <!-- 8. Interactive Student Leader Covenant & Sign-Off (Parent Email Removed) -->
   <section class="covenant-card">
-    <h2 style="margin-top: 0; border-left: none; padding-left: 0;">8. LCYG Student Leader Covenant (2026–2027)</h2>
+    <h2 style="color: var(--brand-blue-dark); border-bottom: none; padding-bottom: 0;">8. LCYG Student Leader Covenant (2026–2027)</h2>
     <p>By signing below, you confirm that you have read and understood the entire LCYG Student Leader Handbook and commit before God, your pastor, and your church community to uphold these standards.</p>
 
     <form id="covenantForm" onsubmit="handleFormSubmit(event)" style="margin-top: 24px;">
@@ -580,8 +545,8 @@
       <button type="submit" class="submit-btn">Submit Signed Leader Covenant</button>
     </form>
 
-    <!-- Discreet Admin Button for Passcode Visual Editing -->
-    <span class="discreet-admin-btn" onclick="enableVisualEdit()">⚙️ Edit Text</span>
+    <!-- Subtle Admin Button -->
+    <span class="discreet-admin-btn" onclick="openAdminEditor()">⚙️ Edit</span>
   </section>
 </div>
 
@@ -618,40 +583,14 @@
     signaturePad.clear();
   }
 
-  /* No-Code On-Screen Visual Editing with Passcode 1004 */
-  function enableVisualEdit() {
-    const code = prompt("Enter Admin Passcode:");
+  /* Discreet Passcode Admin Redirect to GitHub Editor */
+  function openAdminEditor() {
+    const code = prompt("Enter Passcode:");
     if (code === "1004") {
-      const target = document.getElementById('handbookContent');
-      target.contentEditable = "true";
-      target.style.outline = "3px dashed #0284c7";
-      target.style.borderRadius = "12px";
-      target.style.padding = "10px";
-      
-      document.getElementById('saveBanner').style.display = "block";
-      alert("✏️ Editing Mode Enabled!\n\nYou can now click on ANY text directly on the screen and edit it like MS Word. When finished, click the green Save button at the top right!");
+      window.open("https://github.com/jongshan17/lcyg-leader-handbook/edit/main/index.html", "_blank");
     } else if (code !== null) {
       alert("Incorrect Passcode.");
     }
-  }
-
-  function saveAndDownloadHTML() {
-    // Disable editing outline prior to saving
-    const target = document.getElementById('handbookContent');
-    target.contentEditable = "false";
-    target.style.outline = "none";
-    target.style.padding = "0";
-    document.getElementById('saveBanner').style.display = "none";
-
-    // Clean outer HTML
-    const fullDoc = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-    const blob = new Blob([fullDoc], { type: 'text/html' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'index.html';
-    a.click();
-
-    alert("🎉 Updated 'index.html' downloaded!\n\nDrag and drop this downloaded file into your GitHub repository to update your website instantly!");
   }
 
   async function handleFormSubmit(e) {
