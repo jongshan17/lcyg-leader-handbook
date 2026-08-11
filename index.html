@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LCYG Student Leader Handbook 2026-2027</title>
+  
+  <!-- Typography & Canvas Signature Script -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+  <style>
+    :root {
+      --brand-blue: #b6e2f8;
+      --brand-blue-dark: #0284c7;
+      --navy-900: #0f172a;
+      --navy-800: #1e293b;
+      --slate-600: #475569;
+      --slate-100: #f1f5f9;
+      --bg-body: #f8fafc;
+      --card-shadow: 0 20px 25px -5px rgba(182, 226, 248, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--navy-800);
+      line-height: 1.75;
+      padding: 40px 16px;
+    }
+
+    .app-container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      border: 2px solid var(--brand-blue);
+      overflow: hidden;
+    }
+
+    /* Header & Official Logo */
+    .hero-header {
+      background: linear-gradient(135deg, #e0f2fe 0%, #b6e2f8 100%);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .official-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy-900);
+      letter-spacing: -0.8px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #0369a1;
+      font-weight: 700;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* Main Body Content */
+    .content-body {
+      padding: 44px 40px;
+    }
+
+    .section-block {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy-900);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--slate-100);
+      padding-bottom: 10px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 24px;
+      background: var(--brand-blue-dark);
+      border-radius: 4px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brand-blue-dark);
+      margin: 20px 0 10px 0;
+    }
+
+    p, li {
+      font-size: 15px;
+      color: #334155;
+      margin-bottom: 12px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 16px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .quote-card {
+      background: #f0f9ff;
+      border-left: 4px solid var(--brand-blue-dark);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      font-style: italic;
+      margin: 24px 0;
+      color: #0c4a6e;
+    }
+
+    /* Pastor Signature Block */
+    .pastor-sig-block {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fafafa;
+      padding: 18px 24px;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .official-sig-img {
+      height: 65px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Table Component (Symmetrical Layout Fix) */
+    .styled-table {
+      width: 100%;
+      table-layout: fixed; /* Ensures rigid column widths */
+      border-collapse: collapse;
+      margin: 24px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .styled-table col.col-pillar { width: 30%; }
+    .styled-table col.col-armor { width: 30%; }
+    .styled-table col.col-app { width: 40%; }
+
+    .styled-table th {
+      background-color: var(--brand-blue);
+      color: var(--navy-900);
+      font-weight: 800;
+      text-align: left;
+      padding: 14px 16px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .styled-table td {
+      padding: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+      background: #ffffff;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    .pillar-title {
+      font-weight: 800;
+      color: var(--navy-900);
+      white-space: nowrap; /* Keeps pillar titles on a single line! */
+      font-size: 15px;
+    }
+
+    /* Structured Boxes */
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-left: 5px solid var(--brand-blue-dark);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .info-card strong {
+      color: var(--navy-900);
+      font-size: 15px;
+    }
+
+    /* Covenant Form & Interactive Pad */
+    .covenant-card {
+      background: #fafafa;
+      border-top: 2px solid var(--brand-blue);
+      padding: 40px 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy-900);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #ffffff;
+    }
+
+    .signature-pad-wrapper {
+      background: #ffffff;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      position: relative;
+      margin-top: 8px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      cursor: crosshair;
+    }
+
+    .clear-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #f1f5f9;
+      border: none;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #475569;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.3);
+      transition: all 0.2s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 20px -3px rgba(2, 132, 199, 0.4);
+    }
+
+    /* Loading Overlay */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      z-index: 999;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 0; }
+      .app-container { border-radius: 0; border: none; }
+      .content-body, .covenant-card { padding: 24px 18px; }
+      .styled-table { display: block; overflow-x: auto; }
+      .pastor-sig-block { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Header with Official Logo Image -->
+  <header class="hero-header">
+    <img src="LC Youth Group Logo 2026.png" alt="LCYG Official Logo" class="official-logo">
+    <h1 class="hero-title">LCYG Student Leader Handbook</h1>
+    <p class="hero-subtitle">The Lord's Church Youth Group • 2026–2027</p>
+  </header>
+
+  <!-- Main Content Body -->
+  <main class="content-body" id="handbookContent">
+    
+    <!-- 1. Pastoral Letter -->
+    <section class="section-block">
+      <h2>1. Letter from Pastor Jong Seok Han</h2>
+      <div class="quote-card">
+        "For God called you to do good, even if it means suffering, just as Christ suffered for you. He is your example, and you must follow in his steps." — 1 Peter 2:21 (NLT)
+      </div>
+      <p>Dear LCYG Student Leader,</p>
+      <p>Welcome to the <strong>LCYG Student Leadership Team</strong> at The Lord’s Church of Austin. Being called to serve as a student leader in middle school or high school (6th–12th grade) is not a mere title, recognition, or casual club position. It is a sacred privilege and a solemn responsibility bestowed upon you by God to serve as a pipeline of His grace, love, and truth to your peers.</p>
+      <p>As a student leader, you are set apart to exert a Christlike influence inside our youth group, across your school campuses, and within your homes. In <strong>1 Timothy 4:12</strong>, the Apostle Paul exhorts young believers: <em>"Don’t let anyone think less of you because you are young. Be an example to all believers in what you say, in the way you live, in your love, your faith, and your purity."</em></p>
+      <p>We do not expect perfection from you. Rather, we expect <strong>faithfulness, humility, and a heart willing to pursue Jesus passionately</strong>. Leadership in God's kingdom is defined by servant-hearted humility. As you step into this role, trust that the God who called you will also equip you with the courage, wisdom, and grace necessary to fulfill this calling.</p>
+      
+      <!-- Pastor Signature Block with Actual Image -->
+      <div class="pastor-sig-block">
+        <div>
+          <p style="margin: 0; font-weight: 800; color: var(--navy-900);">Pastor Jong Seok Han</p>
+          <p style="margin: 0; font-size: 13px; color: var(--slate-600);">Youth Ministry Pastor, The Lord’s Church of Austin</p>
+        </div>
+        <img src="한종석 사인 - Jong Seok Han Signature 투명.png" alt="Pastor Jong Seok Han Signature" class="official-sig-img">
+      </div>
+    </section>
+
+    <!-- 2. Core Vision & Mission -->
+    <section class="section-block">
+      <h2>2. Core Vision & The Armor of God</h2>
+      <div style="background: #f0f9ff; border: 2px solid var(--brand-blue); padding: 24px; border-radius: 16px; text-align: center; margin: 20px 0;">
+        <p style="font-size: 13px; font-weight: 800; color: var(--brand-blue-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">LCYG Mission Statement</p>
+        <p style="font-size: 19px; font-weight: 800; color: var(--navy-900);">"To equip independent seekers of God through Worship, Fellowship, and Discipleship."</p>
+        <p style="font-size: 13px; color: var(--slate-600); margin-top: 6px;">(Ephesians 6:13)</p>
+      </div>
+
+      <p>An <strong>"Independent Seeker of God"</strong> is a student who does not rely solely on their parents, pastors, or leaders to fuel their faith. Instead, they own their personal relationship with Jesus Christ, actively pursuing Him through regular scripture reading, prayer, and godly decision-making in their daily lives.</p>
+
+      <div class="quote-card" style="background: #fafafa; border-left-color: var(--navy-900);">
+        <strong>Anchor Passage (Ephesians 6:13 NLT):</strong><br>
+        "Therefore, put on every piece of God’s armor so you will be able to resist the enemy in the time of evil. Then after the battle you will still be standing firm."
+      </div>
+
+      <!-- Symmetrical Table with Rigid Widths -->
+      <table class="styled-table">
+        <colgroup>
+          <col class="col-pillar">
+          <col class="col-armor">
+          <col class="col-app">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Pillar</th>
+            <th>Armor Element (Eph 6:13–17)</th>
+            <th>Practical Application</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pillar-title">1. Genuine Worship</span></td>
+            <td>• The Helmet of Salvation<br>• The Breastplate of Righteousness</td>
+            <td>Protect your mind and heart. Worship actively by sitting at the front, engaging sincerely, taking sermon notes, and putting cell phones completely away.</td>
+          </tr>
+          <tr>
+            <td><span class="pillar-title">2. Joyful Fellowship</span></td>
+            <td>• The Belt of Truth<br>• The Shoes of the Gospel of Peace</td>
+            <td>Live authentically without hypocrisy or gossip. Actively welcome newcomers, break up exclusive cliques, and bring Christ's peace into every conversation.</td>
+          </tr>
+          <tr>
+            <td><span class="pillar-title">3. Intentional Discipleship</span></td>
+            <td>• The Shield of Faith<br>• The Sword of the Spirit</td>
+            <td>Stand firm against school peer pressure. Know, memorize, and apply God's Word through daily Quiet Time (QT) and active small group participation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. Leader Qualifications & Commitments -->
+    <section class="section-block">
+      <h2>3. Leader Qualifications & Commitments</h2>
+      
+      <h3>Leader Requirements</h3>
+      <ul>
+        <li><strong>Born-Again Christian:</strong> Has made a personal confession of faith in Jesus Christ as Lord and Savior.</li>
+        <li><strong>Registered LCYG Member:</strong> Consistently attends and is registered in LCYG at The Lord's Church of Austin.</li>
+        <li><strong>Baptism:</strong> Has been baptized OR is actively preparing to be baptized in the upcoming church baptism service.</li>
+        <li><strong>Covenant Commitment:</strong> Voluntarily agrees to abide by the Student Leader Covenant and guidelines outlined in this handbook.</li>
+      </ul>
+
+      <h3>Mandatory Weekly Commitments</h3>
+      <ul>
+        <li><strong>Weekly Friday Night Youth Worship (금요예배):</strong> Mandatory attendance and early arrival for setup and prayer.</li>
+        <li><strong>Weekly Sunday Youth Worship (주일예배):</strong> Mandatory attendance and active participation in service.</li>
+        <li><strong>Special Events & Retreats:</strong> Annual Youth Winter/Spring Retreats, Lock-ins, Praise Nights, and Summer Mission outreaches.</li>
+      </ul>
+
+      <h3>Leader Meeting Schedule</h3>
+      <p>Leader meetings are held <strong><u>WEEKLY</u></strong> (subject to adjustments based on academic schedules, summer breaks, and ministry needs). Meetings serve to prepare for services, plan events, and engage in spiritual leadership training.</p>
+    </section>
+
+    <!-- 4. Attendance Policy & 2-Week Notice Protocol -->
+    <section class="section-block">
+      <h2>4. Attendance Policy & Advance Notice Protocol</h2>
+      
+      <div class="info-card">
+        <strong>1. Mandatory 2-Week Advance Notice Policy:</strong><br>
+        If you anticipate being unable to attend a Friday worship service, Sunday worship service, leader meeting, or scheduled event, you <strong>MUST inform Pastor Jong Seok Han at least TWO (2) WEEKS IN ADVANCE</strong>. This allows ministry teams time to adjust responsibilities and assign substitutes.
+      </div>
+
+      <div class="info-card">
+        <strong>2. Requirement for Clear, Specific Explanations:</strong><br>
+        Generic notices will NOT be accepted. Submitting messages like <em>"I can't make it," "I can't go,"</em> or <em>"I have something else"</em> is unacceptable for a student leader. Your notice must state the <strong>exact and specific reason</strong> (e.g., <em>"I have a mandatory school exam prep on Friday,"</em> or <em>"My family is traveling out of town for a wedding from Oct 12–14"</em>).
+      </div>
+
+      <div class="info-card">
+        <strong>3. Emergency Exception Protocol:</strong><br>
+        In cases of sudden, unforeseen emergencies (e.g., sudden illness or urgent family emergency), the 2-week requirement is waived. However, you or your parent must notify Pastor Jong Seok Han <strong>as soon as humanly possible</strong> prior to the service.
+      </div>
+    </section>
+
+    <!-- 5. Standards of Holy Distinction & Lifestyle -->
+    <section class="section-block">
+      <h2>5. Standards of Holy Distinction & Lifestyle</h2>
+      <p><em>"Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think..." (Romans 12:2 NLT)</em></p>
+
+      <ul>
+        <li><strong>Absolute Sobriety & Substance Purity:</strong> Complete zero-tolerance abstinence from alcohol, tobacco, vaping, e-cigarettes, marijuana, or illegal drugs both inside and outside church. Your body is the temple of the Holy Spirit (1 Corinthians 6:19).</li>
+        <li><strong>Edifying Speech & Zero Gossip (Ephesians 4:29):</strong> Cursing, profanity, vulgar jokes, or derogatory slang must never cross your lips. Talking negatively about fellow students, leaders, or pastors behind their backs is strictly forbidden.</li>
+        <li><strong>Purity & Anti-Clique Culture:</strong> Maintain healthy physical and emotional boundaries. Leaders actively reject exclusive friend groups and reach across social circles to ensure every single student feels welcomed and valued.</li>
+        <li><strong>Digital Integrity & Social Media Conduct (Matthew 5:16):</strong> Everything you post, share, comment, or like on platforms such as Instagram, TikTok, Snapchat, or group chats represents Jesus Christ and LCYG. Unacceptable content includes inappropriate attire, explicit music, cyberbullying, or coarse humor.</li>
+        <li><strong>Personal Devotional Life ("Independent Seeker"):</strong> Leadership flows from your private walk with God. Leaders cultivate daily personal Quiet Time (QT), scripture reading, and prayer.</li>
+      </ul>
+    </section>
+
+    <!-- 6. Youth Leadership Teams -->
+    <section class="section-block">
+      <h2>6. Operational Leadership Teams</h2>
+      <p>Student leaders serve across four functional ministry teams based on spiritual gifts and operational needs:</p>
+
+      <div class="info-card">
+        <strong>1. Welcoming & Hospitality Team:</strong><br>
+        Arrive 20 minutes early for Friday and Sunday services. Stand at sanctuary doors to greet every student warmly. Escort newcomers, help them fill out visitor cards, and ensure no student ever sits alone.
+      </div>
+
+      <div class="info-card">
+        <strong>2. Worship & Tech/Media Support Team:</strong><br>
+        Assist with worship slides (PPT), microphone setup, sound checks, and camera settings. Ensure the sanctuary is clean and organized prior to service and manage post-service cleanup.
+      </div>
+
+      <div class="info-card">
+        <strong>3. Praise & Prayer Leadership Team:</strong><br>
+        Sit near the front during worship services to lead by example through passionate singing and attentive listening. Participate actively during altar calls, prayer times, and small groups.
+      </div>
+
+      <div class="info-card">
+        <strong>4. Fellowship & Event Planning Support Team:</strong><br>
+        Assist Pastor Jong Seok Han in brainstorming and organizing Friday night fellowship activities, summer outings, lock-ins, and retreat icebreakers. Encourage all students to participate enthusiastically.
+      </div>
+    </section>
+
+    <!-- 7. Grace-Based Corrective Policy -->
+    <section class="section-block">
+      <h2>7. Grace-Based Corrective Action Policy</h2>
+      <p>Signing the leadership agreement represents a sacred commitment. If a student leader struggles to uphold commitments, attendance rules, or lifestyle guidelines, LCYG implements a 3-step grace-based restoration process:</p>
+
+      <div class="info-card" style="border-left-color: #f59e0b;">
+        <strong>Step 1: Pastoral Conversation</strong><br>
+        A private, caring conversation with Pastor Jong Seok Han to discuss challenges, offer prayer, and establish a personal support and restoration plan.
+      </div>
+
+      <div class="info-card" style="border-left-color: #ea580c;">
+        <strong>Step 2: Parental Meeting & Temporary Leadership Pause</strong><br>
+        If unexcused absences or conduct issues persist, a meeting with parents will take place. The student may take a temporary 2–4 week sabbatical from leadership duties to focus on spiritual recalibration and academic balance.
+      </div>
+
+      <div class="info-card" style="border-left-color: #dc2626;">
+        <strong>Step 3: Formal Re-Evaluation / Stepping Down</strong><br>
+        If non-compliance continues, the student will step down from the Leadership Team for the remainder of the school year. This is not a punishment, but a loving step to allow space for spiritual growth without the weight of leadership expectations.
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Interactive Student Leader Covenant & Sign-Off -->
+  <section class="covenant-card">
+    <h2 style="color: var(--brand-blue-dark); border-bottom: none; padding-bottom: 0;">8. LCYG Student Leader Covenant (2026–2027)</h2>
+    <p>By signing below, you confirm that you have read and understood the entire LCYG Student Leader Handbook and commit before God, your pastor, and your church community to uphold these standards.</p>
+
+    <form id="covenantForm" onsubmit="handleFormSubmit(event)" style="margin-top: 24px;">
+      <div class="form-group">
+        <label for="studentName">Student Full Name *</label>
+        <input type="text" id="studentName" class="form-input" placeholder="e.g. Joshua Kim" required>
+      </div>
+
+      <div class="form-group">
+        <label for="studentEmail">Student Email Address *</label>
+        <input type="email" id="studentEmail" class="form-input" placeholder="student@gmail.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="parentEmail">Parent / Guardian Email Address *</label>
+        <input type="email" id="parentEmail" class="form-input" placeholder="parent@gmail.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Digital Signature (Draw below with mouse or touch) *</label>
+        <div class="signature-pad-wrapper">
+          <button type="button" class="clear-btn" onclick="clearSig()">Clear Signature</button>
+          <canvas id="sigCanvas"></canvas>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Signed Leader Covenant</button>
+    </form>
+  </section>
+</div>
+
+<!-- Loading Modal -->
+<div id="loadingOverlay" class="loading-overlay">
+  <div style="font-size: 24px;">📄 Generating PDF & Sending Emails...</div>
+  <p style="font-weight: 400; font-size: 14px; opacity: 0.8;">Please wait a moment while your covenant is processed.</p>
+</div>
+
+<script>
+  // Google Apps Script API URL (Replace with your actual script URL when deploying)
+  const GAS_API_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+  let signaturePad;
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('sigCanvas');
+    signaturePad = new SignaturePad(canvas, { 
+      backgroundColor: 'rgba(255, 255, 255, 0)',
+      penColor: '#0f172a'
+    });
+
+    function resizeCanvas() {
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      canvas.getContext("2d").scale(ratio, ratio);
+      signaturePad.clear();
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+  });
+
+  function clearSig() {
+    signaturePad.clear();
+  }
+
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('studentName').value.trim();
+    const sEmail = document.getElementById('studentEmail').value.trim();
+    const pEmail = document.getElementById('parentEmail').value.trim();
+
+    if (!name || !sEmail || !pEmail) {
+      alert("Please fill in all required student and parent email fields.");
+      return;
+    }
+
+    if (signaturePad.isEmpty()) {
+      alert("Please provide your digital signature before submitting.");
+      return;
+    }
+
+    document.getElementById('loadingOverlay').style.display = 'flex';
+
+    const payload = {
+      studentName: name,
+      studentEmail: sEmail,
+      parentEmail: pEmail,
+      signatureData: signaturePad.toDataURL(),
+      handbookBodyHtml: document.getElementById('handbookContent').innerHTML
+    };
+
+    try {
+      const response = await fetch(GAS_API_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+      
+      const result = await response.json();
+      document.getElementById('loadingOverlay').style.display = 'none';
+
+      if (result.success) {
+        alert("🎉 Covenant signed and submitted successfully! A copy has been saved to Google Drive and emailed to you and your parents.");
+        location.reload();
+      } else {
+        alert("Submission failed: " + result.message);
+      }
+    } catch (err) {
+      document.getElementById('loadingOverlay').style.display = 'none';
+      alert("Notice: Covenant submit request sent. If using Apps Script, please ensure CORS/doPost permissions are configured.");
+      console.error(err);
+    }
+  }
+</script>
+
+</body>
+</html>
