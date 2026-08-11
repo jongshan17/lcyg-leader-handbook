@@ -153,6 +153,7 @@
       object-fit: contain;
     }
 
+    /* Desktop Table Layout */
     .styled-table {
       width: 100%;
       table-layout: fixed;
@@ -192,6 +193,47 @@
       color: var(--navy-900);
       white-space: nowrap;
       font-size: 15px;
+    }
+
+    /* Mobile Card Transformation for Table */
+    @media (max-width: 640px) {
+      .styled-table thead {
+        display: none; /* Hide default headers on mobile */
+      }
+      .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block;
+        width: 100% !important;
+      }
+      .styled-table tr {
+        margin-bottom: 20px;
+        background: #ffffff;
+        border: 2px solid var(--brand-blue);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      }
+      .styled-table td {
+        border-bottom: 1px dashed #e2e8f0;
+        padding: 10px 0;
+      }
+      .styled-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .styled-table td::before {
+        content: attr(data-label);
+        font-weight: 800;
+        color: var(--brand-blue-dark);
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 4px;
+      }
+      .pillar-title {
+        font-size: 17px;
+        color: var(--navy-900);
+      }
     }
 
     .info-card {
@@ -296,7 +338,7 @@
       opacity: 0.8;
     }
 
-    /* Floating Green Banner When Editing */
+    /* Floating Green Save Banner During Editing */
     .save-banner {
       display: none;
       position: fixed;
@@ -335,7 +377,6 @@
       body { padding: 0; }
       .app-container { border-radius: 0; border: none; }
       .content-body, .covenant-card { padding: 24px 18px; }
-      .styled-table { display: block; overflow-x: auto; }
       .pastor-sig-block { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   </style>
@@ -395,7 +436,7 @@
         "Therefore, put on every piece of God’s armor so you will be able to resist the enemy in the time of evil. Then after the battle you will still be standing firm."
       </div>
 
-      <!-- Symmetrical Table -->
+      <!-- Symmetrical Responsive Table / Cards on Mobile -->
       <table class="styled-table">
         <colgroup>
           <col class="col-pillar">
@@ -411,19 +452,19 @@
         </thead>
         <tbody>
           <tr>
-            <td><span class="pillar-title">1. Genuine Worship</span></td>
-            <td>• The Helmet of Salvation<br>• The Breastplate of Righteousness</td>
-            <td>Protect your mind and heart. Worship actively by sitting at the front, engaging sincerely, taking sermon notes, and putting cell phones completely away.</td>
+            <td data-label="Pillar"><span class="pillar-title">1. Genuine Worship</span></td>
+            <td data-label="Armor Element">• The Helmet of Salvation<br>• The Breastplate of Righteousness</td>
+            <td data-label="Practical Application">Protect your mind and heart. Worship actively by sitting at the front, engaging sincerely, taking sermon notes, and putting cell phones completely away.</td>
           </tr>
           <tr>
-            <td><span class="pillar-title">2. Joyful Fellowship</span></td>
-            <td>• The Belt of Truth<br>• The Shoes of the Gospel of Peace</td>
-            <td>Live authentically without hypocrisy or gossip. Actively welcome newcomers, break up exclusive cliques, and bring Christ's peace into every conversation.</td>
+            <td data-label="Pillar"><span class="pillar-title">2. Joyful Fellowship</span></td>
+            <td data-label="Armor Element">• The Belt of Truth<br>• The Shoes of the Gospel of Peace</td>
+            <td data-label="Practical Application">Live authentically without hypocrisy or gossip. Actively welcome newcomers, break up exclusive cliques, and bring Christ's peace into every conversation.</td>
           </tr>
           <tr>
-            <td><span class="pillar-title">3. Intentional Discipleship</span></td>
-            <td>• The Shield of Faith<br>• The Sword of the Spirit</td>
-            <td>Stand firm against school peer pressure. Know, memorize, and apply God's Word through daily Quiet Time (QT) and active small group participation.</td>
+            <td data-label="Pillar"><span class="pillar-title">3. Intentional Discipleship</span></td>
+            <td data-label="Armor Element">• The Shield of Faith<br>• The Sword of the Spirit</td>
+            <td data-label="Practical Application">Stand firm against school peer pressure. Know, memorize, and apply God's Word through daily Quiet Time (QT) and active small group participation.</td>
           </tr>
         </tbody>
       </table>
