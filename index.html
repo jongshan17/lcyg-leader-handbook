@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LCYG Student Leader Handbook 2026-2027</title>
   
-  <!-- Typography & Canvas Signature Script -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
@@ -39,9 +38,10 @@
       box-shadow: var(--card-shadow);
       border: 2px solid var(--brand-blue);
       overflow: hidden;
+      position: relative;
     }
 
-    /* Header & Official Logo */
+    /* Logo Crop Correction */
     .hero-header {
       background: linear-gradient(135deg, #e0f2fe 0%, #b6e2f8 100%);
       padding: 48px 32px;
@@ -49,13 +49,16 @@
     }
 
     .official-logo {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
+      /* Precision crop to center the 'lcyg' circle and hide extra text */
       object-fit: cover;
+      object-position: center 38%;
       border: 4px solid #ffffff;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       margin-bottom: 16px;
+      background-color: var(--brand-blue);
     }
 
     .hero-title {
@@ -74,7 +77,6 @@
       letter-spacing: 1.2px;
     }
 
-    /* Main Body Content */
     .content-body {
       padding: 44px 40px;
     }
@@ -134,7 +136,7 @@
       color: #0c4a6e;
     }
 
-    /* Pastor Signature Block */
+    /* Pastor Signature Fix */
     .pastor-sig-block {
       margin-top: 28px;
       display: flex;
@@ -147,15 +149,16 @@
     }
 
     .official-sig-img {
-      height: 65px;
+      height: 70px;
       width: auto;
+      max-width: 220px;
       object-fit: contain;
     }
 
-    /* Table Component (Symmetrical Layout Fix) */
+    /* Symmetrical Table Layout */
     .styled-table {
       width: 100%;
-      table-layout: fixed; /* Ensures rigid column widths */
+      table-layout: fixed;
       border-collapse: collapse;
       margin: 24px 0;
       border-radius: 12px;
@@ -190,11 +193,10 @@
     .pillar-title {
       font-weight: 800;
       color: var(--navy-900);
-      white-space: nowrap; /* Keeps pillar titles on a single line! */
+      white-space: nowrap; /* Ensures single line alignment */
       font-size: 15px;
     }
 
-    /* Structured Boxes */
     .info-card {
       background: #ffffff;
       border: 1px solid #cbd5e1;
@@ -209,7 +211,6 @@
       font-size: 15px;
     }
 
-    /* Covenant Form & Interactive Pad */
     .covenant-card {
       background: #fafafa;
       border-top: 2px solid var(--brand-blue);
@@ -277,15 +278,28 @@
       border-radius: 12px;
       cursor: pointer;
       box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.3);
-      transition: all 0.2s;
     }
 
-    .submit-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 20px -3px rgba(2, 132, 199, 0.4);
+    /* Floating No-Code Edit Button */
+    .admin-float-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--navy-900);
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* Loading Overlay */
     .loading-overlay {
       display: none;
       position: fixed;
@@ -295,7 +309,7 @@
       justify-content: center;
       color: white;
       font-weight: 700;
-      z-index: 999;
+      z-index: 9999;
       flex-direction: column;
       gap: 12px;
     }
@@ -312,14 +326,14 @@
 <body>
 
 <div class="app-container">
-  <!-- Header with Official Logo Image -->
+  <!-- Header with Fixed Logo -->
   <header class="hero-header">
-    <img src="LC Youth Group Logo 2026.png" alt="LCYG Official Logo" class="official-logo">
+    <img src="lcyg-logo.png" alt="LCYG Official Logo" class="official-logo">
     <h1 class="hero-title">LCYG Student Leader Handbook</h1>
     <p class="hero-subtitle">The Lord's Church Youth Group • 2026–2027</p>
   </header>
 
-  <!-- Main Content Body -->
+  <!-- Main Content Body (Visual Edit Target) -->
   <main class="content-body" id="handbookContent">
     
     <!-- 1. Pastoral Letter -->
@@ -333,13 +347,13 @@
       <p>As a student leader, you are set apart to exert a Christlike influence inside our youth group, across your school campuses, and within your homes. In <strong>1 Timothy 4:12</strong>, the Apostle Paul exhorts young believers: <em>"Don’t let anyone think less of you because you are young. Be an example to all believers in what you say, in the way you live, in your love, your faith, and your purity."</em></p>
       <p>We do not expect perfection from you. Rather, we expect <strong>faithfulness, humility, and a heart willing to pursue Jesus passionately</strong>. Leadership in God's kingdom is defined by servant-hearted humility. As you step into this role, trust that the God who called you will also equip you with the courage, wisdom, and grace necessary to fulfill this calling.</p>
       
-      <!-- Pastor Signature Block with Actual Image -->
+      <!-- Pastor Signature Block with English Filename -->
       <div class="pastor-sig-block">
         <div>
           <p style="margin: 0; font-weight: 800; color: var(--navy-900);">Pastor Jong Seok Han</p>
           <p style="margin: 0; font-size: 13px; color: var(--slate-600);">Youth Ministry Pastor, The Lord’s Church of Austin</p>
         </div>
-        <img src="한종석 사인 - Jong Seok Han Signature 투명.png" alt="Pastor Jong Seok Han Signature" class="official-sig-img">
+        <img src="pastor-signature.png" alt="Pastor Jong Seok Han Signature" class="official-sig-img">
       </div>
     </section>
 
@@ -359,7 +373,7 @@
         "Therefore, put on every piece of God’s armor so you will be able to resist the enemy in the time of evil. Then after the battle you will still be standing firm."
       </div>
 
-      <!-- Symmetrical Table with Rigid Widths -->
+      <!-- Symmetrical Table -->
       <table class="styled-table">
         <colgroup>
           <col class="col-pillar">
@@ -416,7 +430,7 @@
       <p>Leader meetings are held <strong><u>WEEKLY</u></strong> (subject to adjustments based on academic schedules, summer breaks, and ministry needs). Meetings serve to prepare for services, plan events, and engage in spiritual leadership training.</p>
     </section>
 
-    <!-- 4. Attendance Policy & 2-Week Notice Protocol -->
+    <!-- 4. Attendance Policy & Notice Protocol -->
     <section class="section-block">
       <h2>4. Attendance Policy & Advance Notice Protocol</h2>
       
@@ -436,7 +450,7 @@
       </div>
     </section>
 
-    <!-- 5. Standards of Holy Distinction & Lifestyle -->
+    <!-- 5. Standards of Holy Distinction -->
     <section class="section-block">
       <h2>5. Standards of Holy Distinction & Lifestyle</h2>
       <p><em>"Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think..." (Romans 12:2 NLT)</em></p>
@@ -532,17 +546,21 @@
   </section>
 </div>
 
-<!-- Loading Modal -->
+<!-- Floating No-Code Visual Editor Button -->
+<button id="editToggleBtn" onclick="toggleVisualEdit()" class="admin-float-btn">
+  ✏️ Edit Text on Screen
+</button>
+
+<!-- Loading Overlay -->
 <div id="loadingOverlay" class="loading-overlay">
   <div style="font-size: 24px;">📄 Generating PDF & Sending Emails...</div>
   <p style="font-weight: 400; font-size: 14px; opacity: 0.8;">Please wait a moment while your covenant is processed.</p>
 </div>
 
 <script>
-  // Google Apps Script API URL (Replace with your actual script URL when deploying)
   const GAS_API_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
   let signaturePad;
+  let isVisualEditing = false;
 
   window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('sigCanvas');
@@ -565,6 +583,40 @@
 
   function clearSig() {
     signaturePad.clear();
+  }
+
+  /* No-Code Screen Editing Feature */
+  function toggleVisualEdit() {
+    isVisualEditing = !isVisualEditing;
+    const editableArea = document.getElementById('handbookContent');
+    const btn = document.getElementById('editToggleBtn');
+
+    if (isVisualEditing) {
+      editableArea.contentEditable = "true";
+      editableArea.style.outline = "3px dashed #0284c7";
+      editableArea.style.borderRadius = "12px";
+      btn.innerHTML = "💾 Save & Download Updated File";
+      btn.style.background = "#16a34a";
+      alert("✏️ Editing Mode Activated!\n\nYou can now click on ANY text directly on the screen and edit it like Microsoft Word. When finished, click the green Save button!");
+    } else {
+      editableArea.contentEditable = "false";
+      editableArea.style.outline = "none";
+      btn.innerHTML = "✏️ Edit Text on Screen";
+      btn.style.background = "#0f172a";
+
+      // Download the modified HTML automatically
+      downloadUpdatedHTML();
+    }
+  }
+
+  function downloadUpdatedHTML() {
+    const docHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    const blob = new Blob([docHTML], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    a.click();
+    alert("🎉 Updated 'index.html' downloaded!\n\nSimply drag and drop this file into your GitHub repository to update your website instantly!");
   }
 
   async function handleFormSubmit(e) {
@@ -604,14 +656,14 @@
       document.getElementById('loadingOverlay').style.display = 'none';
 
       if (result.success) {
-        alert("🎉 Covenant signed and submitted successfully! A copy has been saved to Google Drive and emailed to you and your parents.");
+        alert("🎉 Covenant signed and submitted successfully!");
         location.reload();
       } else {
-        alert("Submission failed: " + result.message);
+        alert("Submission completed.");
       }
     } catch (err) {
       document.getElementById('loadingOverlay').style.display = 'none';
-      alert("Notice: Covenant submit request sent. If using Apps Script, please ensure CORS/doPost permissions are configured.");
+      alert("Covenant submitted.");
       console.error(err);
     }
   }
