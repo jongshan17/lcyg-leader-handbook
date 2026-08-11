@@ -41,24 +41,32 @@
       position: relative;
     }
 
-    /* Logo Crop Correction */
     .hero-header {
       background: linear-gradient(135deg, #e0f2fe 0%, #b6e2f8 100%);
       padding: 48px 32px;
       text-align: center;
     }
 
-    .official-logo {
+    /* Fixed Logo Cropper (Guarantees only the inner circle logo displays) */
+    .logo-cropper {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      /* Precision crop to center the 'lcyg' circle and hide extra text */
-      object-fit: cover;
-      object-position: center 38%;
+      overflow: hidden;
+      margin: 0 auto 16px auto;
       border: 4px solid #ffffff;
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      margin-bottom: 16px;
-      background-color: var(--brand-blue);
+      background-color: #b6e2f8;
+      position: relative;
+    }
+
+    .logo-cropper img {
+      width: 170%;
+      height: auto;
+      position: absolute;
+      top: -22%;
+      left: -35%;
+      object-fit: cover;
     }
 
     .hero-title {
@@ -136,7 +144,6 @@
       color: #0c4a6e;
     }
 
-    /* Pastor Signature Fix */
     .pastor-sig-block {
       margin-top: 28px;
       display: flex;
@@ -155,7 +162,6 @@
       object-fit: contain;
     }
 
-    /* Symmetrical Table Layout */
     .styled-table {
       width: 100%;
       table-layout: fixed;
@@ -193,7 +199,7 @@
     .pillar-title {
       font-weight: 800;
       color: var(--navy-900);
-      white-space: nowrap; /* Ensures single line alignment */
+      white-space: nowrap;
       font-size: 15px;
     }
 
@@ -280,24 +286,22 @@
       box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.3);
     }
 
-    /* Floating No-Code Edit Button */
-    .admin-float-btn {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--navy-900);
-      color: #ffffff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 700;
+    /* Discrete Admin Button (Tiny & Low Opacity) */
+    .discreet-admin-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 11px;
+      color: #94a3b8;
+      opacity: 0.25;
       cursor: pointer;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      user-select: none;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .discreet-admin-btn:hover {
+      opacity: 0.8;
     }
 
     .loading-overlay {
@@ -326,19 +330,21 @@
 <body>
 
 <div class="app-container">
-  <!-- Header with Fixed Logo -->
+  <!-- Header with Perfect Cropped Logo -->
   <header class="hero-header">
-    <img src="lcyg-logo.png" alt="LCYG Official Logo" class="official-logo">
+    <div class="logo-cropper">
+      <img src="lcyg-logo.png" alt="LCYG Official Logo">
+    </div>
     <h1 class="hero-title">LCYG Student Leader Handbook</h1>
     <p class="hero-subtitle">The Lord's Church Youth Group • 2026–2027</p>
   </header>
 
-  <!-- Main Content Body (Visual Edit Target) -->
+  <!-- Main Content Body -->
   <main class="content-body" id="handbookContent">
     
     <!-- 1. Pastoral Letter -->
     <section class="section-block">
-      <h2>1. Letter from Pastor Jong Seok Han</h2>
+      <h2>1. Letter from Youth Pastor</h2>
       <div class="quote-card">
         "For God called you to do good, even if it means suffering, just as Christ suffered for you. He is your example, and you must follow in his steps." — 1 Peter 2:21 (NLT)
       </div>
@@ -347,7 +353,7 @@
       <p>As a student leader, you are set apart to exert a Christlike influence inside our youth group, across your school campuses, and within your homes. In <strong>1 Timothy 4:12</strong>, the Apostle Paul exhorts young believers: <em>"Don’t let anyone think less of you because you are young. Be an example to all believers in what you say, in the way you live, in your love, your faith, and your purity."</em></p>
       <p>We do not expect perfection from you. Rather, we expect <strong>faithfulness, humility, and a heart willing to pursue Jesus passionately</strong>. Leadership in God's kingdom is defined by servant-hearted humility. As you step into this role, trust that the God who called you will also equip you with the courage, wisdom, and grace necessary to fulfill this calling.</p>
       
-      <!-- Pastor Signature Block with English Filename -->
+      <!-- Pastor Signature Block -->
       <div class="pastor-sig-block">
         <div>
           <p style="margin: 0; font-weight: 800; color: var(--navy-900);">Pastor Jong Seok Han</p>
@@ -450,17 +456,17 @@
       </div>
     </section>
 
-    <!-- 5. Standards of Holy Distinction -->
+    <!-- 5. Standards of Holy Distinction (Consistent Citation Style) -->
     <section class="section-block">
       <h2>5. Standards of Holy Distinction & Lifestyle</h2>
       <p><em>"Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think..." (Romans 12:2 NLT)</em></p>
 
       <ul>
-        <li><strong>Absolute Sobriety & Substance Purity:</strong> Complete zero-tolerance abstinence from alcohol, tobacco, vaping, e-cigarettes, marijuana, or illegal drugs both inside and outside church. Your body is the temple of the Holy Spirit (1 Corinthians 6:19).</li>
+        <li><strong>Absolute Sobriety & Substance Purity (1 Corinthians 6:19):</strong> Complete zero-tolerance abstinence from alcohol, tobacco, vaping, e-cigarettes, marijuana, or illegal drugs both inside and outside church. Your body is the temple of the Holy Spirit.</li>
         <li><strong>Edifying Speech & Zero Gossip (Ephesians 4:29):</strong> Cursing, profanity, vulgar jokes, or derogatory slang must never cross your lips. Talking negatively about fellow students, leaders, or pastors behind their backs is strictly forbidden.</li>
-        <li><strong>Purity & Anti-Clique Culture:</strong> Maintain healthy physical and emotional boundaries. Leaders actively reject exclusive friend groups and reach across social circles to ensure every single student feels welcomed and valued.</li>
+        <li><strong>Purity & Anti-Clique Culture (1 Thessalonians 4:3–4):</strong> Maintain healthy physical and emotional boundaries. Leaders actively reject exclusive friend groups and reach across social circles to ensure every single student feels welcomed and valued.</li>
         <li><strong>Digital Integrity & Social Media Conduct (Matthew 5:16):</strong> Everything you post, share, comment, or like on platforms such as Instagram, TikTok, Snapchat, or group chats represents Jesus Christ and LCYG. Unacceptable content includes inappropriate attire, explicit music, cyberbullying, or coarse humor.</li>
-        <li><strong>Personal Devotional Life ("Independent Seeker"):</strong> Leadership flows from your private walk with God. Leaders cultivate daily personal Quiet Time (QT), scripture reading, and prayer.</li>
+        <li><strong>Personal Devotional Life (Psalm 119:105):</strong> Leadership flows from your private walk with God. Leaders cultivate daily personal Quiet Time (QT), scripture reading, and prayer.</li>
       </ul>
     </section>
 
@@ -512,7 +518,7 @@
     </section>
   </main>
 
-  <!-- 8. Interactive Student Leader Covenant & Sign-Off -->
+  <!-- 8. Interactive Student Leader Covenant & Sign-Off (Parent Email Removed) -->
   <section class="covenant-card">
     <h2 style="color: var(--brand-blue-dark); border-bottom: none; padding-bottom: 0;">8. LCYG Student Leader Covenant (2026–2027)</h2>
     <p>By signing below, you confirm that you have read and understood the entire LCYG Student Leader Handbook and commit before God, your pastor, and your church community to uphold these standards.</p>
@@ -529,11 +535,6 @@
       </div>
 
       <div class="form-group">
-        <label for="parentEmail">Parent / Guardian Email Address *</label>
-        <input type="email" id="parentEmail" class="form-input" placeholder="parent@gmail.com" required>
-      </div>
-
-      <div class="form-group">
         <label>Digital Signature (Draw below with mouse or touch) *</label>
         <div class="signature-pad-wrapper">
           <button type="button" class="clear-btn" onclick="clearSig()">Clear Signature</button>
@@ -543,24 +544,21 @@
 
       <button type="submit" class="submit-btn">Submit Signed Leader Covenant</button>
     </form>
+
+    <!-- Subtle Admin Button -->
+    <span class="discreet-admin-btn" onclick="openAdminEditor()">⚙️ Edit</span>
   </section>
 </div>
 
-<!-- Floating No-Code Visual Editor Button -->
-<button id="editToggleBtn" onclick="toggleVisualEdit()" class="admin-float-btn">
-  ✏️ Edit Text on Screen
-</button>
-
 <!-- Loading Overlay -->
 <div id="loadingOverlay" class="loading-overlay">
-  <div style="font-size: 24px;">📄 Generating PDF & Sending Emails...</div>
+  <div style="font-size: 24px;">📄 Generating PDF & Sending Email...</div>
   <p style="font-weight: 400; font-size: 14px; opacity: 0.8;">Please wait a moment while your covenant is processed.</p>
 </div>
 
 <script>
   const GAS_API_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
   let signaturePad;
-  let isVisualEditing = false;
 
   window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('sigCanvas');
@@ -585,38 +583,14 @@
     signaturePad.clear();
   }
 
-  /* No-Code Screen Editing Feature */
-  function toggleVisualEdit() {
-    isVisualEditing = !isVisualEditing;
-    const editableArea = document.getElementById('handbookContent');
-    const btn = document.getElementById('editToggleBtn');
-
-    if (isVisualEditing) {
-      editableArea.contentEditable = "true";
-      editableArea.style.outline = "3px dashed #0284c7";
-      editableArea.style.borderRadius = "12px";
-      btn.innerHTML = "💾 Save & Download Updated File";
-      btn.style.background = "#16a34a";
-      alert("✏️ Editing Mode Activated!\n\nYou can now click on ANY text directly on the screen and edit it like Microsoft Word. When finished, click the green Save button!");
-    } else {
-      editableArea.contentEditable = "false";
-      editableArea.style.outline = "none";
-      btn.innerHTML = "✏️ Edit Text on Screen";
-      btn.style.background = "#0f172a";
-
-      // Download the modified HTML automatically
-      downloadUpdatedHTML();
+  /* Discreet Passcode Admin Redirect to GitHub Editor */
+  function openAdminEditor() {
+    const code = prompt("Enter Passcode:");
+    if (code === "1004") {
+      window.open("https://github.com/jongshan17/lcyg-leader-handbook/edit/main/index.html", "_blank");
+    } else if (code !== null) {
+      alert("Incorrect Passcode.");
     }
-  }
-
-  function downloadUpdatedHTML() {
-    const docHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-    const blob = new Blob([docHTML], { type: 'text/html' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'index.html';
-    a.click();
-    alert("🎉 Updated 'index.html' downloaded!\n\nSimply drag and drop this file into your GitHub repository to update your website instantly!");
   }
 
   async function handleFormSubmit(e) {
@@ -624,10 +598,9 @@
 
     const name = document.getElementById('studentName').value.trim();
     const sEmail = document.getElementById('studentEmail').value.trim();
-    const pEmail = document.getElementById('parentEmail').value.trim();
 
-    if (!name || !sEmail || !pEmail) {
-      alert("Please fill in all required student and parent email fields.");
+    if (!name || !sEmail) {
+      alert("Please fill in your full name and email address.");
       return;
     }
 
@@ -641,7 +614,6 @@
     const payload = {
       studentName: name,
       studentEmail: sEmail,
-      parentEmail: pEmail,
       signatureData: signaturePad.toDataURL(),
       handbookBodyHtml: document.getElementById('handbookContent').innerHTML
     };
