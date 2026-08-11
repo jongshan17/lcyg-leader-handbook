@@ -47,26 +47,17 @@
       text-align: center;
     }
 
-    /* Fixed Logo Cropper (Guarantees only the inner circle logo displays) */
-    .logo-cropper {
+    /* Clean Circular PNG Logo Styling */
+    .official-logo {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      overflow: hidden;
+      object-fit: contain;
       margin: 0 auto 16px auto;
       border: 4px solid #ffffff;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      background-color: #b6e2f8;
-      position: relative;
-    }
-
-    .logo-cropper img {
-      width: 170%;
-      height: auto;
-      position: absolute;
-      top: -22%;
-      left: -35%;
-      object-fit: cover;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      display: block;
+      background-color: #ffffff;
     }
 
     .hero-title {
@@ -221,6 +212,7 @@
       background: #fafafa;
       border-top: 2px solid var(--brand-blue);
       padding: 40px 36px;
+      position: relative;
     }
 
     .form-group {
@@ -286,7 +278,7 @@
       box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.3);
     }
 
-    /* Discrete Admin Button (Tiny & Low Opacity) */
+    /* Subtle Admin Button */
     .discreet-admin-btn {
       position: absolute;
       bottom: 12px;
@@ -302,6 +294,27 @@
 
     .discreet-admin-btn:hover {
       opacity: 0.8;
+    }
+
+    /* Floating Green Banner When Editing */
+    .save-banner {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #16a34a;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 800;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      z-index: 9999;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .save-banner:hover {
+      transform: scale(1.03);
     }
 
     .loading-overlay {
@@ -329,12 +342,15 @@
 </head>
 <body>
 
+<!-- Floating Green Save Button (Appears only during Edit Mode) -->
+<div id="saveBanner" class="save-banner" onclick="saveAndDownloadHTML()">
+  💾 Save Changes & Download index.html
+</div>
+
 <div class="app-container">
-  <!-- Header with Perfect Cropped Logo -->
+  <!-- Header with Perfect Circle Logo -->
   <header class="hero-header">
-    <div class="logo-cropper">
-      <img src="lcyg-logo.png" alt="LCYG Official Logo">
-    </div>
+    <img src="lcyg-logo.png" alt="LCYG Official Logo" class="official-logo">
     <h1 class="hero-title">LCYG Student Leader Handbook</h1>
     <p class="hero-subtitle">The Lord's Church Youth Group • 2026–2027</p>
   </header>
@@ -456,7 +472,7 @@
       </div>
     </section>
 
-    <!-- 5. Standards of Holy Distinction (Consistent Citation Style) -->
+    <!-- 5. Standards of Holy Distinction -->
     <section class="section-block">
       <h2>5. Standards of Holy Distinction & Lifestyle</h2>
       <p><em>"Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think..." (Romans 12:2 NLT)</em></p>
@@ -518,7 +534,7 @@
     </section>
   </main>
 
-  <!-- 8. Interactive Student Leader Covenant & Sign-Off (Parent Email Removed) -->
+  <!-- 8. Interactive Student Leader Covenant & Sign-Off -->
   <section class="covenant-card">
     <h2 style="color: var(--brand-blue-dark); border-bottom: none; padding-bottom: 0;">8. LCYG Student Leader Covenant (2026–2027)</h2>
     <p>By signing below, you confirm that you have read and understood the entire LCYG Student Leader Handbook and commit before God, your pastor, and your church community to uphold these standards.</p>
@@ -545,8 +561,8 @@
       <button type="submit" class="submit-btn">Submit Signed Leader Covenant</button>
     </form>
 
-    <!-- Subtle Admin Button -->
-    <span class="discreet-admin-btn" onclick="openAdminEditor()">⚙️ Edit</span>
+    <!-- Subtle Admin Button for Passcode Visual Editing -->
+    <span class="discreet-admin-btn" onclick="enableVisualEdit()">⚙️ Edit</span>
   </section>
 </div>
 
@@ -583,14 +599,40 @@
     signaturePad.clear();
   }
 
-  /* Discreet Passcode Admin Redirect to GitHub Editor */
-  function openAdminEditor() {
-    const code = prompt("Enter Passcode:");
+  /* No-Code On-Screen Visual Editing (Passcode 1004) */
+  function enableVisualEdit() {
+    const code = prompt("Enter Admin Passcode:");
     if (code === "1004") {
-      window.open("https://github.com/jongshan17/lcyg-leader-handbook/edit/main/index.html", "_blank");
+      const target = document.getElementById('handbookContent');
+      target.contentEditable = "true";
+      target.style.outline = "3px dashed #0284c7";
+      target.style.borderRadius = "12px";
+      target.style.padding = "10px";
+      
+      document.getElementById('saveBanner').style.display = "block";
+      alert("✏️ Editing Mode Enabled!\n\nYou can now click on ANY text directly on the screen and edit it like MS Word. When finished, click the green Save button at the top right!");
     } else if (code !== null) {
       alert("Incorrect Passcode.");
     }
+  }
+
+  function saveAndDownloadHTML() {
+    // Disable editing outline prior to saving
+    const target = document.getElementById('handbookContent');
+    target.contentEditable = "false";
+    target.style.outline = "none";
+    target.style.padding = "0";
+    document.getElementById('saveBanner').style.display = "none";
+
+    // Clean outer HTML
+    const fullDoc = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    const blob = new Blob([fullDoc], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    a.click();
+
+    alert("🎉 Updated 'index.html' downloaded!\n\nDrag and drop this downloaded file into your GitHub repository to update your website instantly!");
   }
 
   async function handleFormSubmit(e) {
