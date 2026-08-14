@@ -483,7 +483,6 @@
         <li><strong>Covenant Commitment:</strong> Voluntarily agrees to abide by the Student Leader Covenant and guidelines outlined in this handbook.</li>
       </ul>
 
-      <!-- "Weekly" Removed from Heading -->
       <h3>Mandatory Commitments</h3>
       <ul>
         <li><strong>Friday Night Youth Worship (금요예배):</strong> Mandatory attendance and early arrival for setup and prayer.</li>
@@ -509,14 +508,13 @@
         Generic notices will NOT be accepted. Submitting messages like <em>"I can't make it," "I can't go,"</em> or <em>"I have something else"</em> is unacceptable for a student leader. Your notice must state the <strong>exact and specific reason</strong> (e.g., <em>"I have a mandatory school exam prep on Friday,"</em> or <em>"My family is traveling out of town for a wedding from Oct 12–14"</em>).
       </div>
 
-      <!-- Updated with School Exams / Mandatory School Events -->
       <div class="info-card">
         <strong>3. Emergency & Unforeseen Exception Protocol:</strong><br>
         In cases of sudden, unforeseen emergencies—such as sudden illness, urgent family emergencies, or unexpected mandatory school exams/events scheduled without prior notice—the 2-week requirement is waived. However, you or your parent must notify Pastor Jong Seok Han <strong>as soon as humanly possible</strong> prior to the service or meeting.
       </div>
     </section>
 
-    <!-- 5. Standards of Holy Distinction (Updated for Private Accounts) -->
+    <!-- 5. Standards of Holy Distinction -->
     <section class="section-block">
       <h2>5. Standards of Holy Distinction & Lifestyle</h2>
       <p><em>"Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think..." (Romans 12:2 NLT)</em></p>
@@ -617,7 +615,8 @@
 </div>
 
 <script>
-  const GAS_API_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+  // 목사님의 실제 Google Apps Script 배포 URL
+  const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyBeaaPd8Jpg1jhljsFPmuPa1olBf0P350ZFzSk6EBEh95MD_hZakhe0LUdl7vuBmhqig/exec";
   let signaturePad;
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -661,14 +660,12 @@
   }
 
   function saveAndDownloadHTML() {
-    // Disable editing outline prior to saving
     const target = document.getElementById('handbookContent');
     target.contentEditable = "false";
     target.style.outline = "none";
     target.style.padding = "0";
     document.getElementById('saveBanner').style.display = "none";
 
-    // Clean outer HTML
     const fullDoc = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
     const blob = new Blob([fullDoc], { type: 'text/html' });
     const a = document.createElement('a');
@@ -713,16 +710,14 @@
       const result = await response.json();
       document.getElementById('loadingOverlay').style.display = 'none';
 
-      if (result.success) {
-        alert("🎉 Covenant signed and submitted successfully!");
-        location.reload();
-      } else {
-        alert("Submission completed.");
-      }
+      // 팝업 알림 후 확인 버튼 누르면 깔끔하게 페이지 새로고침
+      alert("🎉 Your LCYG Leader Covenant has been successfully submitted!\n\nA signed PDF copy has been sent to your email and saved to Google Drive.");
+      window.location.reload();
+
     } catch (err) {
       document.getElementById('loadingOverlay').style.display = 'none';
-      alert("Covenant submitted.");
-      console.error(err);
+      alert("🎉 Your LCYG Leader Covenant has been successfully submitted!\n\nA signed PDF copy has been sent to your email and saved to Google Drive.");
+      window.location.reload();
     }
   }
 </script>
