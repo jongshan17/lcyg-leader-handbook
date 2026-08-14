@@ -7,8 +7,6 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-  <!-- 고화질 브라우저 화면 PDF 캡처 라이브러리 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
     :root {
@@ -386,7 +384,7 @@
   💾 Save Changes & Download index.html
 </div>
 
-<div class="app-container" id="pdfCaptureArea">
+<div class="app-container">
   <!-- Header -->
   <header class="hero-header">
     <img src="lcyg-logo-trans.png" alt="LCYG Official Logo" class="official-logo">
@@ -574,13 +572,12 @@
     </section>
   </main>
 
-  <!-- 8. Interactive Covenant & Dynamic Completed Sign-off Area -->
-  <section class="covenant-card" id="covenantArea">
+  <!-- 8. Interactive Student Leader Covenant & Sign-Off -->
+  <section class="covenant-card">
     <h2 style="color: var(--brand-blue-dark); border-bottom: none; padding-bottom: 0;">8. LCYG Student Leader Covenant (2026–2027)</h2>
-    <p style="margin-bottom: 20px;">By signing below, you confirm that you have read and understood the entire LCYG Student Leader Handbook and commit before God, your pastor, and your church community to uphold these standards.</p>
+    <p>By signing below, you confirm that you have read and understood the entire LCYG Student Leader Handbook and commit before God, your pastor, and your church community to uphold these standards.</p>
 
-    <!-- Sign-off Form -->
-    <form id="covenantForm" onsubmit="handleFormSubmit(event)">
+    <form id="covenantForm" onsubmit="handleFormSubmit(event)" style="margin-top: 24px;">
       <div class="form-group">
         <label for="studentName">Student Full Name *</label>
         <input type="text" id="studentName" class="form-input" placeholder="e.g. Joshua Kim" required>
@@ -594,31 +591,23 @@
       <div class="form-group">
         <label>Digital Signature (Draw below with mouse or touch) *</label>
         <div class="signature-pad-wrapper">
-          <button type="button" class="clear-btn" id="clearBtn" onclick="clearSig()">Clear Signature</button>
+          <button type="button" class="clear-btn" onclick="clearSig()">Clear Signature</button>
           <canvas id="sigCanvas"></canvas>
         </div>
       </div>
 
-      <button type="submit" class="submit-btn" id="submitBtn">Submit Signed Leader Covenant</button>
+      <button type="submit" class="submit-btn">Submit Signed Leader Covenant</button>
     </form>
 
-    <!-- Dynamic Completed Area (replaces form before capture) -->
-    <div id="completedCovenantDisplay" style="display: none; background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-top: 15px;">
-      <p style="margin-bottom: 8px;"><strong>Student Full Name:</strong> <span id="dispName"></span></p>
-      <p style="margin-bottom: 8px;"><strong>Student Email:</strong> <span id="dispEmail"></span></p>
-      <p style="margin-bottom: 8px;"><strong>Date Signed:</strong> <span id="dispDate"></span></p>
-      <p style="margin-bottom: 8px;"><strong>Student Digital Signature:</strong></p>
-      <img id="dispSigImg" src="" style="max-width: 280px; max-height: 90px; border-bottom: 1px solid #0f172a;" alt="Student Signature">
-    </div>
-
-    <span class="discreet-admin-btn" id="adminEditBtn" onclick="enableVisualEdit()">⚙️ Edit</span>
+    <!-- Subtle Admin Button -->
+    <span class="discreet-admin-btn" onclick="enableVisualEdit()">⚙️ Edit</span>
   </section>
 </div>
 
 <!-- Loading Overlay -->
 <div id="loadingOverlay" class="loading-overlay">
-  <div style="font-size: 24px;">📄 Generating High-Resolution PDF & Sending Email...</div>
-  <p style="font-weight: 400; font-size: 14px; opacity: 0.8;">Please wait a moment while your covenant is processed.</p>
+  <div style="font-size: 24px;">📄 Submitting Covenant & Generating PDF...</div>
+  <p style="font-weight: 400; font-size: 14px; opacity: 0.8;">Please wait a moment while your document is saved.</p>
 </div>
 
 <script>
@@ -699,42 +688,17 @@
 
     document.getElementById('loadingOverlay').style.display = 'flex';
 
-    // 1. 입력된 정보를 기반으로 완성형 서약서 영역 생성
-    const sigDataUrl = signaturePad.toDataURL();
-    const todayStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    
-    document.getElementById('dispName').textContent = name;
-    document.getElementById('dispEmail').textContent = sEmail;
-    document.getElementById('dispDate').textContent = todayStr;
-    document.getElementById('dispSigImg').src = sigDataUrl;
-
-    // 2. 폼 숨기고 완성형 카드 표시 + 버튼류 숨기기
-    document.getElementById('covenantForm').style.display = 'none';
-    document.getElementById('completedCovenantDisplay').style.display = 'block';
-    document.getElementById('adminEditBtn').style.display = 'none';
-
-    // 3. 브라우저 화면을 100% 동일하게 고화질 PDF로 직접 캡처 생성
-    const element = document.getElementById('pdfCaptureArea');
-    const pdfOpt = {
-      margin: [10, 10, 10, 10],
-      filename: `LCYG_Leader_Covenant_${name}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true, logging: false },
-      jsPDF: { unit: 'mm', format: 'letter', orientation: 'portrait' }
+    const payload = {
+      studentName: name,
+      studentEmail: sEmail,
+      signatureData: signaturePad.toDataURL(),
+      handbookBodyHtml: document.getElementById('handbookContent').innerHTML
     };
 
     try {
-      const pdfDataUri = await html2pdf().set(pdfOpt).from(element).outputPdf('datauristring');
-
-      // 4. 구글 백엔드로 고화질 PDF 데이터 전송
-      const payload = {
-        studentName: name,
-        studentEmail: sEmail,
-        pdfBase64: pdfDataUri
-      };
-
-      const response = await fetch(GAS_API_URL, {
+      await fetch(GAS_API_URL, {
         method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       });
 
@@ -744,8 +708,8 @@
 
     } catch (err) {
       document.getElementById('loadingOverlay').style.display = 'none';
-      alert("🎉 Your LCYG Leader Covenant has been successfully submitted!\n\nA signed PDF copy has been sent to your email and saved to Google Drive.");
-      window.location.reload();
+      alert("Submission encountered a network issue. Please check your connection and try again.");
+      console.error(err);
     }
   }
 </script>
