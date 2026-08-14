@@ -389,11 +389,11 @@
 </div>
 
 <div class="app-container">
-  <!-- Header with Transparent Circle PNG Logo -->
+  <!-- Header with Full Absolute URL PNG Logo -->
   <header class="hero-header">
-    <img src="lcyg-logo-trans.png" alt="LCYG Official Logo" class="official-logo">
+    <img src="https://jongshan17.github.io/lcyg-leader-handbook/lcyg-logo-trans.png" alt="LCYG Official Logo" class="official-logo">
     <h1 class="hero-title">LCYG Student Leader Handbook</h1>
-    <p class="hero-subtitle">The Lord's Church Youth Group • 2026–2027</p>
+    <p class="hero-subtitle">The Lord's Church of Austin Youth Group • 2026–2027</p>
   </header>
 
   <!-- Main Content Body -->
@@ -410,13 +410,13 @@
       <p>As a student leader, you are set apart to exert a Christlike influence inside our youth group, across your school campuses, and within your homes. In <strong>1 Timothy 4:12</strong>, the Apostle Paul exhorts young believers: <em>"Don’t let anyone think less of you because you are young. Be an example to all believers in what you say, in the way you live, in your love, your faith, and your purity."</em></p>
       <p>We do not expect perfection from you. Rather, we expect <strong>faithfulness, humility, and a heart willing to pursue Jesus passionately</strong>. Leadership in God's kingdom is defined by servant-hearted humility. As you step into this role, trust that the God who called you will also equip you with the courage, wisdom, and grace necessary to fulfill this calling.</p>
       
-      <!-- Pastor Signature Block -->
+      <!-- Pastor Signature Block with Full Absolute URL for PDF rendering -->
       <div class="pastor-sig-block">
         <div>
           <p style="margin: 0; font-weight: 800; color: var(--navy-900);">Pastor Jong Seok Han</p>
           <p style="margin: 0; font-size: 13px; color: var(--slate-600);">Youth Ministry Pastor, The Lord’s Church of Austin</p>
         </div>
-        <img src="pastor-signature.png" alt="Pastor Jong Seok Han Signature" class="official-sig-img">
+        <img src="https://jongshan17.github.io/lcyg-leader-handbook/pastor-signature.png" alt="Pastor Jong Seok Han Signature" class="official-sig-img">
       </div>
     </section>
 
@@ -615,7 +615,6 @@
 </div>
 
 <script>
-  // 목사님의 실제 Google Apps Script 배포 URL
   const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyBeaaPd8Jpg1jhljsFPmuPa1olBf0P350ZFzSk6EBEh95MD_hZakhe0LUdl7vuBmhqig/exec";
   let signaturePad;
 
@@ -710,7 +709,6 @@
       const result = await response.json();
       document.getElementById('loadingOverlay').style.display = 'none';
 
-      // 팝업 알림 후 확인 버튼 누르면 깔끔하게 페이지 새로고침
       alert("🎉 Your LCYG Leader Covenant has been successfully submitted!\n\nA signed PDF copy has been sent to your email and saved to Google Drive.");
       window.location.reload();
 
